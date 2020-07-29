@@ -1,0 +1,12 @@
+Choose password:
+
+Password must be filled in twice
+Password must exist of at least 8 chars
+Password must contain at least 1 digit
+Password must contain at least 1 capital letter
+Password must contain at least 1 lowercase letter
+Password must contain at least one punctuation char of @ ! # $ % _ *
+Password cannot contain whitespaces
+A message should be shown when passwords are not equal and button is clicked
+A message should be shown when passwords are invalid
+A message should be shown when choosing password succeeded
