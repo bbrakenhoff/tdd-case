@@ -6,6 +6,8 @@ skinparam class {
     ArrowColor #12ABDB
 }
 
+skinparam shadowing false
+skinparam LineType ortho
 skinparam DefaultFontColor #222222
 skinparam DefaultFontName Verdana
 skinparam CircledCharacterFontColor white
@@ -45,8 +47,8 @@ class ChoosePasswordFragment {
     - Button confirmButton
 }
 
+PasswordChecker -left> ChoosePasswordViewModel
 Message -> ChoosePasswordViewModel
-PasswordChecker -> ChoosePasswordViewModel
-ChoosePasswordViewModel -> ChoosePasswordFragment
+ChoosePasswordViewModel -down-> ChoosePasswordFragment
 
 @enduml
