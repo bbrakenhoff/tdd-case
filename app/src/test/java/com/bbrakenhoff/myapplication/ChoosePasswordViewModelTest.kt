@@ -7,6 +7,7 @@ import com.bbrakenhoff.myapplication.ui.main.PasswordChecker
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -37,6 +38,7 @@ class ChoosePasswordViewModelTest {
         choosePasswordViewModel.updateMessage()
 
         assertThat(choosePasswordViewModel.message.value).isEqualTo(Message.ErrorPasswordsUnequal)
+        verify(exactly = 0) { passwordCheckerMock.isPasswordValid() }
     }
 
     @Test
@@ -44,7 +46,7 @@ class ChoosePasswordViewModelTest {
         every { passwordCheckerMock.isPasswordValid() } returns false
 
         choosePasswordViewModel.chosenPassword.value = "Chosen1@"
-        choosePasswordViewModel.confirmedPassword.value = "Confirmed1@"
+        choosePasswordViewModel.confirmedPassword.value = "Chosen1@"
 
         choosePasswordViewModel.updateMessage()
 

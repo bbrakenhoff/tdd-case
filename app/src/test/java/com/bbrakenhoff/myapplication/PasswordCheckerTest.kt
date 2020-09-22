@@ -12,15 +12,14 @@ class PasswordCheckerTest {
 
     @Before
     fun before(){
-        passwordChecker= PasswordChecker()
+        passwordChecker = PasswordChecker()
     }
 
     @Test
     fun `isValid() returns false when password is shorter than min length`() {
-        passwordChecker. password = "Achm3@"
+        passwordChecker.password = "Achm3@"
         assertThat(passwordChecker.isPasswordValid()).isFalse()
     }
-
 
     @Test
     fun `isValid() returns false when password contains does not contain any digits`() {
@@ -35,7 +34,7 @@ class PasswordCheckerTest {
     }
 
     @Test
-    fun `isValid() returns false when password does not contain a lowercase letter`() {
+    fun `password should be invalid when when password does not contain a lowercase letter`() {
          passwordChecker. password  = "ACHM3TEST"
         assertThat(passwordChecker.isPasswordValid()).isFalse()
     }
@@ -53,13 +52,13 @@ class PasswordCheckerTest {
     }
 
     @Test
-    fun `isValid() returns false when password contains whitespaces`() {
+    fun `password should be invalid when password contains whitespaces`() {
          passwordChecker. password  = "Achm3@ test"
         assertThat(passwordChecker.isPasswordValid()).isFalse()
     }
 
     @Test
-    fun `isValid(password) returns true when password complies to all rules`() {
+    fun `password should be valid when when password complies to all rules`() {
          passwordChecker. password  = "Achm@TddW0rksh0p!"
         assertThat(passwordChecker.isPasswordValid()).isTrue()
     }

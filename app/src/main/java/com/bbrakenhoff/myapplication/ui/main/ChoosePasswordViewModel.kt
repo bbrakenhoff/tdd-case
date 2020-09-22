@@ -20,10 +20,10 @@ class ChoosePasswordViewModel(private val passwordChecker: PasswordChecker) : Vi
         if (bothPasswordsEntered()) {
             _message.value = Message.SuccessPasswordConfirmed
 
-            if (!passwordChecker.isPasswordValid()) {
-                _message.value = Message.ErrorChosenPasswordInvalid
-            } else if (!passwordsAreEqual()) {
+            if (!passwordsAreEqual()) {
                 _message.value = Message.ErrorPasswordsUnequal
+            } else if (!passwordChecker.isPasswordValid()) {
+                _message.value = Message.ErrorChosenPasswordInvalid
             }
         }
     }

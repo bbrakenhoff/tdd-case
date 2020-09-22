@@ -33,8 +33,7 @@ class ChoosePasswordFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val chosenPassword = view.findViewById(R.id.chosen_password) as EditText
-        chosenPassword.addTextChangedListener(object :
-            TextWatcher {
+        chosenPassword.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -45,8 +44,7 @@ class ChoosePasswordFragment : Fragment() {
         })
 
         val confirmedPassword = view.findViewById(R.id.confirmed_password) as EditText
-        confirmedPassword.addTextChangedListener(object :
-            TextWatcher {
+        confirmedPassword.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
