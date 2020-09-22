@@ -3,8 +3,8 @@ package com.bbrakenhoff.myapplication.ui.main
 class PasswordChecker() {
 
     companion object {
-        const val AllowedPasswordLength = 8
-        const val AllowedPunctuationChars = "!@#$%*_"
+        private const val AllowedPasswordLength = 8
+        private const val AllowedPunctuationChars = "!@#$%*_"
     }
 
     var password: String = ""

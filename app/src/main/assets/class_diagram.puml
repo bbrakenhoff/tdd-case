@@ -1,0 +1,52 @@
+@startuml
+
+skinparam class {
+    BorderColor #12ABDB
+    BackgroundColor white
+    ArrowColor #12ABDB
+}
+
+skinparam DefaultFontColor #222222
+skinparam DefaultFontName Verdana
+skinparam CircledCharacterFontColor white
+skinparam StereotypeCBackgroundColor #FF304C
+skinparam StereotypeCBorderColor #FF304C
+skinparam StereotypeEBackgroundColor #FF6327
+skinparam StereotypeEBorderColor #FF6327
+skinparam IconPublicColor #0F999C
+skinparam IconPublicBackgroundColor #0F999C
+skinparam IconPrivateColor #FF7E83
+
+class PasswordChecker {
+    + String password
+    + boolean isPasswordValid()
+}
+
+enum Message {
+    SuccessPasswordConfirmed
+    ErrorChosenPasswordInvalid
+    ErrorPasswordsUnequal
+}
+
+class ChoosePasswordViewModel {
+    - PasswordChecker passwordChecker
+    + LiveData<String> chosenPassword
+    + LiveData<String> confirmedPassword
+    + LiveData<Message> message
+
+    + void updateMessage()
+}
+
+class ChoosePasswordFragment {
+    - ChoosePasswordViewModel choosePasswordViewModel
+    - EditText chosenPassword
+    - EditText confirmedPassword
+    - TextView message
+    - Button confirmButton
+}
+
+Message -> ChoosePasswordViewModel
+PasswordChecker -> ChoosePasswordViewModel
+ChoosePasswordViewModel -> ChoosePasswordFragment
+
+@enduml
